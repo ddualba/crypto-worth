@@ -1,0 +1,62 @@
+@import 'variables';
+
+/* Text Styles */
+.x-large {
+  font-size: 4rem;
+}
+
+.large {
+  font-size: 3rem;
+}
+
+.lead {
+  font-size: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  background: $color-white;
+  color: #333;
+  padding: 0.7rem 2rem;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  margin: 1.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+}
+
+.btn-primary {
+  background: $color-primary;
+  color: #fff;
+}
+
+.btn-light {
+  background: $color-grey-light-1;
+  color: #333;
+}
+
+.btn-dark {
+  background: $color-grey-dark-1;
+  color: #fff;
+}
+
+.btn-danger {
+  background: $color-danger;
+  color: #fff;
+}
+
+.btn-success {
+  background: $color-success;
+  color: #fff;
+}
+
+.btn-white {
+  background: #fff;
+  color: #333;
+  border: #ccc solid 1px;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}

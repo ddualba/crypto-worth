@@ -1,0 +1,51 @@
+@import 'sass/variables';
+
+.main-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: $color-primary;
+  padding: 2rem 1rem;
+  z-index: 60;
+}
+
+.navigation {
+  &__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__logo a {
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+    // display: inline-block;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
+
+  &__item a {
+    text-decoration: none;
+    padding: 0.5rem;
+    margin: 0 0.25rem;
+    color: white;
+    font-size: 2rem;
+    // display: inline-block;
+  }
+
+  &__item a:hover,
+  &__item a:active {
+    color: white;
+    border-bottom: 2px solid white;
+  }
+}

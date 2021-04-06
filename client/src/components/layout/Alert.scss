@@ -1,0 +1,36 @@
+@import 'sass/variables';
+
+.alert {
+  padding: 0.8rem;
+  margin: 1rem 0;
+  opacity: 0.9;
+  background: $color-grey-light-1;
+  color: #333;
+  font-size: 2rem;
+}
+
+.alert-primary {
+  background: $color-primary;
+  color: #fff;
+}
+.alert-light {
+  background: $color-grey-light-1;
+  color: #333;
+}
+.alert-dark {
+  background: $color-grey-dark-1;
+  color: #fff;
+}
+.alert-danger {
+  background: $color-danger;
+  color: #fff;
+}
+.alert-success {
+  background: $color-success;
+  color: #fff;
+}
+.alert-white {
+  background: #fff;
+  color: #333;
+  border: #ccc solid 1px;
+}

@@ -1,0 +1,13 @@
+.coinpage {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  &__title {
+    font-size: 4rem;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+  }
+}

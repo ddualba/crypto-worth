@@ -1,0 +1,78 @@
+@import 'variables';
+
+// Global Reset
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  // so 1rem is 10px, 10px/16px browser default = 62.5%
+  font-size: 62.5%;
+
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: 'Open Sans', sans-serif; //300, 400, 600
+  color: $color-grey-dark-2;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.container {
+  // grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  // grid-template-columns:
+  //   [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr)
+  //   [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+  //   [center-end] minmax(6rem, 1fr) [full-end];
+
+  display: grid;
+  grid-template-rows: 7rem auto fit-content(8rem);
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+  padding-top: 0;
+  height: 100%;
+
+  min-height: 500px; // for testing
+  // background-color: pink; // for testing
+
+  // @media only screen and (max-width: $bp-large) {
+  //   grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+  //   grid-template-columns:
+  //     [full-start] minmax(6rem, 1fr)
+  //     [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+  //     [center-end] minmax(6rem, 1fr) [full-end];
+  // }
+
+  // @media only screen and (max-width: $bp-medium) {
+  //   grid-template-rows: 6rem calc(100vh - 6rem);
+  // }
+}
+
+main {
+  grid-area: main;
+  padding: 0rem;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
