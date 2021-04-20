@@ -29,9 +29,10 @@ router.post(
 
     try {
       const newCoin = new Coin({
-        exchange,
         symbol,
         name,
+        exchange,
+        quantity,
         user: req.user.id
       });
 
@@ -63,8 +64,28 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
+// @route   GET api/coins/:coin_id *** TESTED
+// @desc    Get coin by id
+// @access  Private
+
+router.get('/:coin_id', auth, async (req, res) => {
+  try {
+    const coin = await Coin.findById(req.params.coin_id);
+    if (!coin) {
+      return res.status(404).json({ msg: 'There is no coin with that id' });
+    }
+    res.json(coin);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Coin not found' });
+    }
+    res.status(500).send('Server Error - Get Coin by Id');
+  }
+});
+
 // @route   PATCH api/coins/:id [x/]
-// @desc    Update a coins quantity only - Todo [ ] update Exchange
+// @desc    Update a coins exchange, quantity only
 // @access  Private
 
 router.patch(
@@ -76,7 +97,12 @@ router.patch(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { quantity } = req.body;
+    const { exchange, quantity } = req.body;
+
+    // build a Fields object
+    const coinFields = {};
+    if (exchange) coinFields.exchange = exchange;
+    if (quantity) coinFields.quantity = quantity;
 
     try {
       const coin = await Coin.findById(req.params.id);
@@ -91,10 +117,14 @@ router.patch(
         return res.status(401).json({ msg: 'User not authorized' });
       }
 
-      if (quantity) coin.quantity = quantity;
+      // update coin
+      updatedCoin = await Coin.findByIdAndUpdate(
+        req.params.id,
+        { $set: coinFields },
+        { new: true }
+      );
 
-      await coin.save();
-      res.json({ msg: 'Coin updated' });
+      res.json(updatedCoin);
     } catch (err) {
       console.error(err.message);
       if (err.kind === 'ObjectId') {

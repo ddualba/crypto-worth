@@ -11,5 +11,8 @@ export const LOGOUT = 'LOGOUT';
 // app specific exports
 export const ADD_COIN = 'ADD_COIN';
 export const GET_COINS = 'GET_COINS';
+export const GET_COIN = 'GET_COIN';
+export const COIN_ERROR = 'COIN_ERROR';
 export const UPDATE_COIN = 'UPDATE_COIN';
 export const DELETE_COIN = 'DELETE_COIN';
+export const SET_CURRENT_COIN = 'SET_CURRENT_COIN';

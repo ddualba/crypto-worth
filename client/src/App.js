@@ -21,7 +21,7 @@ const App = ({ loadUser }) => {
   }, [loadUser]);
 
   return (
-    <div className='container'>
+    <div className='my-container'>
       <Router>
         <Fragment>
           <Header />
